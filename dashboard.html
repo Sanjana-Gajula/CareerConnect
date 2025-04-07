@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - CareerConnect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h2>CareerConnect</h2>
+        <div>
+            {% if session['role'] == 'employer' %}
+                <a href="{{ url_for('add_job') }}">Add Job</a>
+            {% endif %}
+            {% if session['role'] == 'jobseeker' %}
+                <a href="{{ url_for('profile') }}">My Profile</a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Available Jobs</h2>
+        {% for job in jobs %}
+            <div style="margin-bottom: 20px;">
+                <h3>{{ job.title }}</h3>
+                <p><strong>Location:</strong> {{ job.location }}</p>
+                <p><strong>Role:</strong> {{ job.role }}</p>
+                <p><strong>Salary:</strong> {{ job.salary }}</p>
+                <p>{{ job.description }}</p>
+                {% if session['role'] == 'jobseeker' %}
+                    <a href="{{ url_for('apply', job_id=job.id) }}"><button>Apply</button></a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

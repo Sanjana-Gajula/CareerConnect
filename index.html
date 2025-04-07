@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CareerConnect - Job Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h2>CareerConnect</h2>
+        <div>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Welcome to CareerConnect</h1>
+        <p>Your bridge between opportunity and talent. Job seekers can find jobs, employers can post jobs, and we keep it all connected!</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile - CareerConnect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h2>CareerConnect</h2>
+        <a href="{{ url_for('dashboard') }}">Back</a>
+    </div>
+    <div class="container">
+        <h2>My Profile</h2>
+        {% with messages = get_flashed_messages() %}
+            {% for msg in messages %}
+                <p style="color:green;">{{ msg }}</p>
+            {% endfor %}
+        {% endwith %}
+        <form method="POST">
+            <textarea name="profile" placeholder="Update your profile (skills, interests, etc)">{{ user.profile }}</textarea>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

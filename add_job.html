@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Job - CareerConnect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h2>CareerConnect</h2>
+        <a href="{{ url_for('dashboard') }}">Back</a>
+    </div>
+    <div class="container">
+        <h2>Post a New Job</h2>
+        <form method="POST">
+            <input type="text" name="title" placeholder="Job Title" required>
+            <input type="text" name="location" placeholder="Location" required>
+            <input type="text" name="role" placeholder="Role" required>
+            <input type="text" name="salary" placeholder="Salary" required>
+            <textarea name="description" placeholder="Job Description" required></textarea>
+            <button type="submit">Post Job</button>
+        </form>
+    </div>
+</body>
+</html>
